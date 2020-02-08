@@ -22,9 +22,7 @@
             .then(() => engine.shake())
             .then(() => engine.toText('三千遍'))
             .then(() => engine.shake())
-            .then(() => engine.toText('请你把手交给我'))
-            .then(() => engine.shake())
-            .then(() => engine.toText('放下心中的困惑'))
+            .then(() => engine.toText('把手交给我'))
             .then(() => engine.shake())
             .then(() => engine.toText('我陪你'))
             .then(() => engine.shake())
@@ -32,7 +30,9 @@
             .then(() => engine.shake())
             .then(() => engine.toText('走在田埂上'))
             .then(() => engine.shake())
-            .then(() => engine.toText('就这样，走下去'))
+            .then(() => engine.toText('就这样'))
+            .then(() => engine.shake())
+            .then(() => engine.toText('走下去'))
             .then(() => engine.shake())
             .then(() => document.getElementById('go').addEventListener('click', start));
     }
