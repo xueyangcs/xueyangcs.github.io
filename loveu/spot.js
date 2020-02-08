@@ -10,15 +10,18 @@
 
     function start() {
         document.getElementById('go').removeEventListener('click', start);
-        promise.then(() => engine.toText('L'))
+        promise.then(() => engine.toText('粥盐'))
             .then(() => engine.shake())
-            .then(() => engine.toText('O'))
+            .then(() => engine.toText('我'))
             .then(() => engine.shake())
-            .then(() => engine.toText('V'))
+            .then(() => engine.toText('薛扬'))
             .then(() => engine.shake())
-            .then(() => engine.toText('E'))
+            .then(() => engine.toText('喜欢你'))
             .then(() => engine.shake())
-            .then(() => engine.clear())
+            .then(() => engine.toText('爱你'))
+            .then(() => engine.shake())
+            .then(() => engine.toText('三千遍'))
+            .then(() => engine.shake())
             .then(() => document.getElementById('go').addEventListener('click', start));
     }
     start();
