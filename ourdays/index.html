@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>粥粥与咩咩在一起</title>
+		<title>粥粥与咩咩在一起的日子</title>
 	    
         <link type="text/css" rel="stylesheet" href="./index_files/default.css">
 		<script type="text/javascript" src="./index_files/jquery.min.js"></script>
@@ -24,21 +24,24 @@
             <div id="wrap">
                 <div id="text">
 			        <div id="code">
-			        	<span class="say">* 致粥粥： *</span><br>
+			        	<span class="say">* 粥粥宝贝： </span><br>
 						<span class="say"> </span><br>
-			        	<span class="say">· 七夕节快乐呀！</span><br>
+			        	<span class="say">· 七夕节快乐！</span><br>
 						<span class="say"> </span><br>
                         <span class="say">· 我们已经在一起一年半啦~</span><br>
 						<span class="say"> </span><br>
-			        	<span class="say">· 希望和你，在计数达到1314天时</span><br>
-					<span class="say"> </span><br>
-						<span class="say">· 还能互相说爱你</span><br>
+			        	<span class="say">· 希望和你，携手到老</span><br>
+						<span class="say"> </span><br>
+						<span class="say">· 会一如既往，继往开来地爱你呀</span><br>
+                        <span class="say"> </span><br>
+                        <span class="say">· （づ￣3￣）づ╭❤～</span><br>
+						<span class="say"> </span><br>
                         <span class="say"><span class="space"></span>--咩咩</span>
 			        </div>
                 </div>
                 <div id="clock-box">
-                    <span class="STYLE1">现在是</span>粥粥 <span class="STYLE1" style="color: red">❤</span> 咩咩<span class="STYLE1" style="color: red">相爱</span>
-                  <div id="clock"></div>
+                    今天是咩咩 <span class="STYLE1" style="color: red">❤</span> 粥粥的
+                    <div id="clock"></div>
               </div>
                 <canvas id="canvas" width="1100" height="680"></canvas>
             </div>
@@ -67,7 +70,7 @@
             seed: {
                 x: width / 2 - 20,
                 color: "rgb(190, 26, 37)",
-                scale: 2
+                scale: 5    //这里修改初始的小心心大小
             },
             branch: [
                 [535, 680, 570, 250, 500, 200, 30, 100, [
@@ -88,7 +91,7 @@
                 ]] 
             ],
             bloom: {
-                num: 700,
+                num:560,
                 width: 1080,
                 height: 650,
             },
@@ -97,7 +100,7 @@
                 height: 5,
                 speed: 10,
             }
-        }
+        }        
 
         var tree = new Tree(canvas[0], width, height, opts);
         var seed = tree.seed;
@@ -176,10 +179,11 @@
                 $await(Jscex.Async.sleep(25));
             }
         }));
-       //下面修改起始日期
-        var textAnimate = eval(Jscex.compile("async", function () {
+       //下面设置初始时间
+        var days_global;
+        var textAnimate_draw = eval(Jscex.compile("async", function () {
 		    var together = new Date();
-		    together.setFullYear(2021, 7, 5); 			//时间年月日 月份0~11
+		    together.setFullYear(2020, 1, 1); 			//时间年月日 月份0~11
 		    together.setHours(22);						//小时	
 		    together.setMinutes(22);					//分钟
 		    together.setSeconds(2);					//秒前一位
@@ -187,10 +191,11 @@
 
 		    $("#code").show().typewriter();
             $("#clock-box").fadeIn(500);
-            while (true) {
-                timeElapse(together);
-                $await(Jscex.Async.sleep(1000));
-            }
+              /* while (true) {  */
+                 var days_global=timeElapse(together); 
+                /* opts.bloom.num=days_global; */
+                 /* $await(Jscex.Async.sleep(1000));
+            }   */
         }));
 
         var runAsync = eval(Jscex.compile("async", function () {
@@ -198,8 +203,8 @@
             $await(growAnimate());
             $await(flowAnimate());
             $await(moveAnimate());
-
-            textAnimate().start();
+            textAnimate_draw().start();
+            
 
             $await(jumpAnimate());
         }));
@@ -207,6 +212,5 @@
         runAsync().start();
     })();
     </script>
-    <!--<iframe src = "./给你们.mp3" allow = "autoplay" hidden /> //自己修改音乐位置 -->
 </body>
 </html>
