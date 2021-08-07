@@ -169,7 +169,7 @@
             ctx.moveTo(0, 0);
             ctx.scale(0.75, 0.75);
             ctx.font = "12px 微软雅黑,Verdana"; // 字号肿么没有用? (ˉ(∞)ˉ)
-            ctx.fillText("click here", 23, 16);
+            ctx.fillText("点小心心", 23, 16);
             ctx.restore();
         },
         clear: function() {
@@ -260,7 +260,7 @@
         initBloom: function() {
             var bloom = this.opt.bloom || {};
             var cache = [],
-                num = bloom.num || 500, 
+                num = bloom.num || 560,     //设置花朵的数量
                 width = bloom.width || this.width,
                 height = bloom.height || this.height,
                 figure = this.seed.heart.figure;
@@ -399,7 +399,7 @@
         	ctx.restore();
 
             rec.point = new Point(i, j);
-            rec.speed = speed * 0.95;
+            rec.speed = speed * 1.0;
 
             if (rec.speed < 2) {
                 rec.speed = 2;
@@ -421,7 +421,7 @@
                     figure = this.seed.heart.figure;
                 var r = 240, x, y;
                 for (var i = 0; i < random(1,2); i++) {
-                    blooms.push(this.createBloom(width / 2 + width, height, r, figure, null, 1, null, 1, new Point(random(-100,600), 720), random(200,300)));
+                    blooms.push(this.createBloom(width / 2 + width, height, r, figure, null, 1, null, 1, new Point(random(-100,600), 720), random(400,500)));
                 }
             }
         }
